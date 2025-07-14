@@ -24,3 +24,5 @@ VignetteBuilder: knitr
 Suggests: 
     knitr,
     rmarkdown
+URL: https://github.com/AnthonyBasooma/ramber
+BugReports: https://github.com/AnthonyBasooma/ramber/issues
