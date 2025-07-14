@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+amber
+amber.zip
+testing
+src
+^README\.Rmd$

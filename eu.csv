@@ -1,0 +1,52 @@
+country_name,alpha_2,alpha_3,alt_names,numeric,area_km2,area_comment
+Russia,RU,RUS,['Russian Federation'],643,3972400.0,"17,098,242 km2 including Northern Asia"
+Ukraine,UA,UKR,['Ukraine'],804,603628.0,
+France,FR,FRA,"['France', 'French Republic']",250,551695.0,"643,801 km2 when the overseas departments are included."
+Spain,ES,ESP,"['Spain', 'Kingdom of Spain']",724,498511.0,"505,990 km2 when the Canary Islands, Ceuta and Melilla are included."
+Sweden,SE,SWE,"['Sweden', 'Kingdom of Sweden']",752,450295.0,
+Norway,NO,NOR,"['Norway', 'Kingdom of Norway']",578,385178.0,This includes Svalbard and Jan Mayen
+Germany,DE,DEU,"['Germany', 'Federal Republic of Germany']",276,357386.0,
+Finland,FI,FIN,"['Finland', 'Republic of Finland']",246,338145.0,
+Poland,PL,POL,"['Poland', 'Republic of Poland']",616,312685.0,
+Italy,IT,ITA,"['Italy', 'Italian Republic']",380,301338.0,
+United Kingdom,GB,GBR,"['United Kingdom', 'United Kingdom of Great Britain and Northern Ireland']",826,242495.0,"260,665 km2 when the British Overseas Territories (except the British Antarctic Territory) are included."
+Romania,RO,ROU,['Romania'],642,238397.0,
+Belarus,BY,BLR,"['Belarus', 'Republic of Belarus']",112,207600.0,
+Kazakhstan,KZ,KAZ,"['Kazakhstan', 'Republic of Kazakhstan']",398,180000.0,"2,724,902 km2 including Asian part"
+Greece,GR,GRC,"['Greece', 'Hellenic Republic']",300,131940.0,
+Bulgaria,BG,BGR,"['Bulgaria', 'Republic of Bulgaria']",100,110994.0,
+Iceland,IS,ISL,"['Iceland', 'Republic of Iceland']",352,102775.0,
+Hungary,HU,HUN,"['Hungary', 'Hungary']",348,93030.0,
+Portugal,PT,PRT,"['Portugal', 'Portuguese Republic']",620,91568.0,
+Austria,AT,AUT,"['Austria', 'Republic of Austria']",040,83858.0,
+Czech Republic,CZ,CZE,"['Czechia', 'Czech Republic']",203,78866.0,
+Serbia,RS,SRB,"['Serbia', 'Republic of Serbia']",688,77453.0,"88,361 km2 including Kosovo"
+Ireland,IE,IRL,['Ireland'],372,70273.0,
+Lithuania,LT,LTU,"['Lithuania', 'Republic of Lithuania']",440,65300.0,
+Latvia,LV,LVA,"['Latvia', 'Republic of Latvia']",428,64589.0,
+Croatia,HR,HRV,"['Croatia', 'Republic of Croatia']",191,56594.0,
+Bosnia and Herzegovina,BA,BIH,"['Bosnia and Herzegovina', 'Republic of Bosnia and Herzegovina']",070,51129.0,
+Slovakia,SK,SVK,"['Slovakia', 'Slovak Republic']",703,49036.0,
+Estonia,EE,EST,"['Estonia', 'Republic of Estonia']",233,45339.0,
+Denmark,DK,DNK,"['Denmark', 'Kingdom of Denmark']",208,44493.0,"This includes Faroe Islands; 2,210,579 km2 including Greenland"
+Switzerland,CH,CHE,"['Switzerland', 'Swiss Confederation']",756,41290.0,
+Netherlands,NL,NLD,"['Netherlands', 'Kingdom of the Netherlands']",528,41198.0,"Excluding Caribbean Netherlands, Aruba, Curacao and Sint Maarten."
+Moldova,MD,MDA,"['Moldova, Republic of', 'Republic of Moldova']",498,33846.0,
+Belgium,BE,BEL,"['Belgium', 'Kingdom of Belgium']",056,30510.0,
+Armenia,AM,ARM,"['Armenia', 'Republic of Armenia']",051,29843.0,Sometimes considered part of Asia
+Albania,AL,ALB,"['Albania', 'Republic of Albania']",008,28748.0,
+North Macedonia,MK,MKD,"['North Macedonia', 'Republic of North Macedonia']",807,25713.0,
+Turkey,TR,TUR,"['Turkey', 'Republic of Turkey']",792,23764.0,"783,562 km2 including Asian part"
+Slovenia,SI,SVN,"['Slovenia', 'Republic of Slovenia']",705,20273.0,
+Montenegro,ME,MNE,"['Montenegro', 'Montenegro']",499,13812.0,
+Kosovo,RS,SRB,"['Serbia', 'Republic of Serbia']",688,10908.0,Partially recognised state
+Cyprus,CY,CYP,"['Cyprus', 'Republic of Cyprus']",196,9251.0,Sometimes considered part of Asia
+Azerbaijan,AZ,AZE,"['Azerbaijan', 'Republic of Azerbaijan']",031,6960.0,"86,600 km2 including Asian part"
+Luxembourg,LU,LUX,"['Luxembourg', 'Grand Duchy of Luxembourg']",442,2586.0,
+Georgia,GE,GEO,['Georgia'],268,2428.0,"69,700 km2 including Asian part"
+Andorra,AD,AND,"['Andorra', 'Principality of Andorra']",020,468.0,
+Malta,MT,MLT,"['Malta', 'Republic of Malta']",470,316.0,
+Liechtenstein,LI,LIE,"['Liechtenstein', 'Principality of Liechtenstein']",438,160.0,
+San Marino,SM,SMR,"['San Marino', 'Republic of San Marino']",674,61.0,
+Monaco,MC,MCO,"['Monaco', 'Principality of Monaco']",492,2.02,
+Vatican City,VA,VAT,['Holy See (Vatican City State)'],336,0.44,

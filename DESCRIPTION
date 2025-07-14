@@ -1,0 +1,26 @@
+Package: ramber
+Title: Download Data From The AMBER Database
+Version: 0.0.1
+Authors@R: c( 
+    person(given = "Anthony", family = "Basooma", email = "anthony.basooma@boku.ac.at", 
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0002-8994-9989")),
+    person("Florian", "Borgwardt", role = c("ctb","fnd"), comment = c(ORCID = "0000-0002-8974-7834")),
+    person("Thomas", "Hein", role = c("ctb", "fnd","ths"), comment = c(ORCID = "0000-0002-7767-4607")),
+    person("Astrid", "Schmidt-Kloiber", role = c("ctb", "fnd", "dtc"), comment = c(ORCID = "0000-0001-8839-5913"))
+           )
+Description: To download data from the AMBER database comprising multiple barriers, including dams, culverts, and weirs.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: R (>= 2.10)
+Imports: 
+    R.cache,
+    sf,
+    utils
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown

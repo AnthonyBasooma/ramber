@@ -1,0 +1,19 @@
+---
+title: "Download and arrange data from AMBER database."
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Download and arrange data from AMBER database.}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ramber)
+```
