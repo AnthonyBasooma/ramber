@@ -114,7 +114,7 @@ get_amber_updates <- function(a = NULL , b = NULL, details = TRUE, colcheck,
   }else{
     if(isTRUE(tracker)) x <- 'barrier tracker' else x <- 'barrier atlas'
 
-    message('The ', x ,' has not updated since the last download.')
+    message('The ', x ,' has not been updated since the last download.')
   }
 
 }
