@@ -1,41 +1,49 @@
-#' Title
+#' Check countries
 #'
-#' @param x
-#' @param amb
-#' @param y
+#' @param x user input
+#' @param y amber atlas or tracker data
 #'
 #' @return
+#'
 #' @export
 #'
 #' @examples
 #'
-check_countries <- function(x, amb, y, ind){
+check_countries <- function(x, y){
 
-  unx <- unique(unlist(amb[y]))
+  ab <- 'Country'%in%colnames(y)
 
-  out <- unx[which(unx%in%x==TRUE)]
+  cc <- if(isTRUE(ab))  'Country' else "country" #atlas vs tracker
 
-  if(length(x)!=length(out)){
+  ccs <- unique(unlist(y[,cc]))
 
-    #if not check with std df for eu ctries
-    eu <- get_eu_countries()
+  ein <- ccs[which(ccs%in%x==TRUE)]
 
-    if(nchar(x[1])== 2) euin <- eu$alpha_2
+  if(length(ein)!=length(x) &&length(ein)<length(x)){
 
-    if(nchar(x[1])== 3) euin <- eu$alpha_3
+    #some countries not seen in the data
+    u11 <- x[which(x%in%ein==FALSE)]
 
-    if(nchar(x[1])>3) euin <- eu$country_name
+    #get countries
+    eux <- get_eu_countries()
 
-    if(missing(ind)){
+    if(nchar(u11[1])== 2) euin <- eux$alpha_2
 
-      euout <- toupper(eu$country_name[which(euin%in%x ==TRUE)])
-    }else{
-    #   euout <- tolower(euout)
-    #
-    #   substr(euout , 1, 1) <- toupper(substr(euout , 1, 1))
-     }
+    if(nchar(u11[1])== 3) euin <- eux$alpha_3
 
-    out <- unx[which(unx%in% euout ==TRUE)]
+    if(nchar(u11[1])>3) euin <- eux$country_name
+
+    euout <- eux$country_name[which(euin%in%u11 ==TRUE)]
+
+    #check again in countries but upper case for atlas
+
+    e5 <- if(isTRUE(ab)) toupper(euout) else euout
+
+    e6 <- ccs[which(ccs%in%e5==TRUE)]
+
+    if(isTRUE(length(e6)<length(u11)))warning("Countries ", paste0(u11[which(u11%in%euout==FALSE)], collapse = ", "), " not in AMBER database and will be removed.", call. = FALSE)
+
+    ein <- c(ein, e6)
   }
-  return(out)
+  return(ein)
 }

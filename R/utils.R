@@ -129,17 +129,18 @@ clean_dates <- function(ts){
 
 #filtering using bounding box
 
-#' Geofiltering
+#' Geo filtering
 #'
 #' @param x the data from barrier track or atlas
 #' @param y shapefile or bounding box
+#' @param mask Delineate the area by shapefile not bounding box.
 #'
 #' @importFrom stats complete.cases
 #' @importFrom sf st_bbox st_filter st_set_crs st_as_sfc
 #'
 #' @return filter data cropped by bounding box
 
-.crop <- function(x, y){
+.crop <- function(x, y, mask = FALSE){
 
   #remove missing values from coordinates in barrier data and convert to sf
 
@@ -150,21 +151,24 @@ clean_dates <- function(ts){
   if(isFALSE(tf)) crds <- c("Longitude_WGS84", "Latitude_WGS84") else crds <- btc
 
   b1 <-  x[complete.cases(x[, crds]), ] |> st_as_sf(coords = crds, crs = st_crs(4326))
+
   #if y is a shapefile, filter out records#first check if crs of x == crs y
+
   if(inherits(y, "sf")){
 
     if(isFALSE(st_crs(b1) == st_crs(y))){
 
-      warning("The crs of the shapefile is not in WGS84. trying to transform")
+      warning("The crs of the shapefile is not in WGS84. Trying to transform")
 
       y <- sf::st_transform(y, 4326)
     }
-    yout <-  st_bbox(y)
+    yout <- if(isTRUE(mask))y else st_bbox(y)
   }else{
 
     if(length(y)!=4 && !is.numeric(y))stop("The bounding box should be 4 describing the bounding box in a form or xmin, ymin, xmax, ymax")
 
     class(y) <- "bbox"
+
     yout <- y
   }
 

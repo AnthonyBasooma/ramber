@@ -3,20 +3,20 @@
 #'
 #' @param type \code{string} The type of barrier to filter out. The available options include
 #'        \code{"ramp"    "culvert" "dam"     "sluice"  "other"   "weir"    "ford"}.
-#' @param country \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param riverwidth \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param fishpass \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param depth \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param width \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param height \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param subtype \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param usefulness \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param extension \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param flow \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param rivername \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param year \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param month \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
-#' @param day \code{string} Provide the country/s to be filtered. Default is all will be returned if left unfilled.
+#' @param country \code{string} Provide the country to be filtered. Default is all will be returned if left unfilled.
+#' @param riverwidth \code{string} Provide the river width to be filtered. Default is all will be returned if left unfilled.
+#' @param fishpass \code{string} Provide the fish passes to be filtered. Default is all will be returned if left unfilled.
+#' @param depth \code{string} Provide the depth to be filtered. Default is all will be returned if left unfilled.
+#' @param width \code{string} Provide the width to be filtered. Default is all will be returned if left unfilled.
+#' @param height \code{string} Provide the height to be filtered. Default is all will be returned if left unfilled.
+#' @param subtype \code{string} Provide the sub types to be filtered. Default is all will be returned if left unfilled.
+#' @param usefulness \code{string} Provide the usefulness to be filtered. Default is all will be returned if left unfilled.
+#' @param extension \code{string} Provide the extension to be filtered. Default is all will be returned if left unfilled.
+#' @param flow \code{string} Provide the river flows to be filtered. Default is all will be returned if left unfilled.
+#' @param rivername \code{string} Provide the river names to be filtered. Default is all will be returned if left unfilled.
+#' @param year \code{string} Provide the years to be filtered. Default is all will be returned if left unfilled.
+#' @param month \code{string} Provide the month to be filtered. Default is all will be returned if left unfilled.
+#' @param day \code{string} Provide the days to be filtered. Default is all will be returned if left unfilled.
 #'
 #' @inheritParams .dataCache
 #' @inheritParams get_barrieratlas
@@ -51,7 +51,12 @@
 get_barriertracker <- function(type, country, riverwidth, fishpass, depth, width, height,
                            subtype, usefulness, extension, flow, rivername,
                            year = NULL, month = NULL, day = NULL,
-                           inform = FALSE, format ='data.table', cache= TRUE, bbox, reload = FALSE){
+                           inform = FALSE, format ='data.table', cache= TRUE, bbox, reload = FALSE,
+                           mask = FALSE){
+
+  if(isTRUE(mask) &missing(bbox))stop("To implement masking, provide a shapefile to delineate out the data or set mask to FALSE.", call. = FALSE)
+
+
   if(isTRUE(cache)){
 
     cachedir <- br_path(dir='amber')
@@ -66,7 +71,7 @@ get_barriertracker <- function(type, country, riverwidth, fishpass, depth, width
     out <- .dataCache(cache = cache)[[2]]
   }
 
-  btrack <- if(missing(bbox)) out else .crop(x=out, y = bbox)
+  btrack <- if(missing(bbox)) out else .crop(x=out, y = bbox, mask = FALSE)
 
   btype <- if(missing(type)) unique(btrack$type) else type
 
@@ -137,7 +142,7 @@ get_barriertracker <- function(type, country, riverwidth, fishpass, depth, width
     wwdout <- ww
   }
 
-  if(format=='shp') {
+  if(format=='geom' & missing(bbox)) {
 
     out <- wwdout[complete.cases(wwdout[, c("lng", "lat")]), ]
 

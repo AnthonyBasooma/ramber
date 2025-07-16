@@ -38,7 +38,10 @@ get_barrieratlas <- function(type, country, depth, dbname, height,
                          outlet, rivername,basinname, hclass,
                          inform = FALSE,
                          format ='data.table',
-                         cache= TRUE, bbox, reload = FALSE){
+                         cache= TRUE, bbox, reload = FALSE, mask = FALSE){
+
+  if(isTRUE(mask) &missing(bbox))stop("To implement masking, provide a shapefile to delineate out the data or set mask to FALSE.", call. = FALSE)
+
   if(isTRUE(cache)){
 
     cachedir <- br_path(dir='amber')
@@ -53,7 +56,7 @@ get_barrieratlas <- function(type, country, depth, dbname, height,
     out <- .dataCache(cache = cache, inform = inform)[[1]]
   }
 
-  batlas <- if(missing(bbox)) out else .crop(x=out, y = bbox)
+  batlas <- if(missing(bbox)) out else .crop(x=out, y = bbox, mask = mask)
 
   btype   <-   if(missing(type)) unique(batlas$type) else type
 
@@ -79,7 +82,8 @@ get_barrieratlas <- function(type, country, depth, dbname, height,
                  batlas$Height%in%height &
                  batlas$DBName%in%dbname &
                  batlas$RiverName%in%rivn,]
-  if(format=='shp') {
+
+  if(format=='geom' & missing(bbox)) {
 
     out <- ww[complete.cases(ww[, c("Longitude_WGS84", "Latitude_WGS84")]), ]
 
